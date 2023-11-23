@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터 시각화</title>
+    <!-- Plotly 라이브러리 추가 -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+<!-- 그래프를 렌더링할 div -->
+<div id="graph"></div>
+
+<script>
+    // Python에서 전달한 JSON 형식의 그래프 데이터
+    var graph_json = {{ graph_json | tojson | safe }};
+
+    // 그래프 렌더링
+    Plotly.newPlot('graph', graph_json.data, graph_json.layout);
+</script>
+
+</body>
+</html>
